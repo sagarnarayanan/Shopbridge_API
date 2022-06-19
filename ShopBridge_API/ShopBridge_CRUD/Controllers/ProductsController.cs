@@ -91,7 +91,7 @@ namespace ShopBridge_CRUD.Controllers
         [HttpPost]
         public async Task<JsonResult> InsertProductsAsync(Products products)
         {
-            string query = @"insert into MYDB.PRODUCTS(PRODUCT_ID, PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_MRP, DAT_INSERT_DATE,DAT_MODIFY_DATE, PRODUCT_SELLER) 
+            string query = @"insert into PRODUCTS(PRODUCT_ID, PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_MRP, DAT_INSERT_DATE,DAT_MODIFY_DATE, PRODUCT_SELLER) 
                             VALUES(@PRODUCT_ID,@PRODUCT_NAME,@PRODUCT_DESCRIPTION,@PRODUCT_MRP,@PRODUCT_MRP,@DAT_INSERT_DATE,@PRODUCT_SELLER)";
 
             DataTable QueryTable = new DataTable();
@@ -131,7 +131,7 @@ namespace ShopBridge_CRUD.Controllers
         [HttpPut]
         public async Task<JsonResult> ModifyProductsAsync(Products products)
         {
-            string query = @"UPDATE MYDB.PRODUCTS 
+            string query = @"UPDATE PRODUCTS 
                                SET PRODUCT_NAME = @PRODUCT_NAME,
                                 PRODUCT_DESCRIPTION = @PRODUCT_DESCRIPTION, 
                                 PRODUCT_MRP = @PRODUCT_MRP, 
@@ -174,7 +174,7 @@ namespace ShopBridge_CRUD.Controllers
         [HttpDelete("{id}")]
         public async Task<JsonResult> DeleteProductsAsync(int id)
         {
-            string query = @"DELETE FROM MYDB.PRODUCTS 
+            string query = @"DELETE FROM PRODUCTS 
                                 WHERE PRODUCT_ID = @PRODUCT_ID";
 
             DataTable QueryTable = new DataTable();
